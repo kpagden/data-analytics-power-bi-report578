@@ -15,7 +15,7 @@ The customers table was initially split across 3 csv files in a folder on my loc
 I used the DAX formula `Dates = CALENDAR(MIN(Orders[Order Date]), MAX(Orders[Shipping Date]))` to create a continuous date table to act as a basis for time intelligence in the data model. I then populated the table with more columns to support my analysis, such as `Start of Quarter = STARTOFQUARTER(Dates[Date])`.
 ### 2.2 Building the star schema data model
 I navigated to the model view in Power BI to create the star based schema, with the Orders table at the centre. I established the relationships between the tables, such as Orders[Product Code] to Products[Product Code]. The complete data model looks like this:
-![](data_model.png)
+![](screenshots/data_model.png)
 ### 2.3 Creating a Measures table
 I used the Enter Data feature in the model view to load a new blank table for my measures. This helps to keep the measures used in the analysis organised.
 ### 2.4 Creating key measures
@@ -26,16 +26,16 @@ Next I had to establish hierarchies to facilitate drilling-down into the data. F
 I navigated to the Report View and created the four pages that would comprise my report. I selected the City Park colour theme under the View tab. I also inserted a rectangular shape on the left edge of the first page and copied it to the other pages, which would serve as a navigation sidebar.
 ## 4. Building the Customer Detail page
 For each visual, I selected the type of visual to create in the visualisation pane and then dragged across the fields to plot from the data pane. Then I adjusted the formatting in the Format pane. For the Customer Detail page, I added card visuals of unique customers and revenue per customer. I added a donut chart for total customers by country and a column chart of customers by product category. I also included a line chart, table and a date slicer, so users can filter the page by year. The finished page looks like this:
-![](customer_detail_page.png)
+![](screenshots/customer_detail_page.png)
 ## 5. Building the Executive Summary page
 On this page I included card visuals for total reveue, orders and profit, a graph of revenue against time, donut charts for revenue by country and store type, a bar chart of orders by product category, KPIs for quarterly revenue, orders and profit, and a table of the top 10 products by revenue. The finished page looks like this:
-![](executive_summary_page.png)
+![](screenshots/executive_summary_page.png)
 ## 6. Building the Product Detail page
 On this page I added gauge visuals for quarterly performance against a target, an area chart showing revenue of each product category over time, a table for top 10 products by revenue, and a scatter graph of quantity sold against profit per item. I then included slicers for product category and country, and enclosed them in a slicer toolbar so that they are only revealed when the user wishes to change the filters applied to the visuals, in order to keep the page free of clutter. This was achieved using two bookmarks, one with the toolbar open and the other with it closed, and two buttons with their actions assigned to the different bookmark states. The finished page (with the toolbar collapsed) looks like this:
-![](product_detail_page.png)
+![](screenshots/product_detail_page.png)
 ## 7. Building the Stores Map page
 This page focuses on a map of the stores, with the geography hierarchy as the location field and profit YTD as the bubble size. There is a slicer to filter by country, and a drillthrough page, which shows further details regarding a selected store's performance. I also created a tooltip page with a gauge visual of profit YTD against a target, which can be seen by hovering the mouse over the bubble of a region on the map. The finished page looks like this:
-![](stores_map_page.png)
+![](screenshots/stores_map_page.png)
 ## 8. Cross-filtering and navigation
 Next I used the Edit Interactions view in the Format tab of the ribbon to disable some of the cross-filtering (where clicking on a data point of one visual affects the others),only for visuals where the output becomes confusing. I also finished the navigation sidebar by assigning actions to the buttons that linked each one to one of the four main pages of the report.
 ## 9. Creating metrics using SQL
